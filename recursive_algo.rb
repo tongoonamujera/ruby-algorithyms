@@ -45,10 +45,33 @@ module Factorial
     end
     b
   end
+
+  def check_repeating
+    a,i = self,0
+    c = a.gsub(/(.)(\1)*/).to_a
+    b = c.select {|i| i.size >= 3}
+    b[0].nil? ? false : true
+  end
+
+  def order_items(arr, arr1)
+    b = arr.size + arr1.size
+    c = []
+    (0..(b - 1)).each do |i|
+      if (i % 2) == 0
+        c[i] = arr.shift
+      else
+        c[i] = arr1.shift
+      end
+    end
+    c
+  end
 end
 
 a = Array(1..10)
 c = 'mujer'
+d = 'mmmmm'
+a = ['a1', 'a2', 'a3']
+b = ['b1', 'b2', 'b3']
 include Factorial
 print c.str_rev, "\n"
 puts 3.num_root(8)
@@ -57,3 +80,6 @@ puts a.find_index_of(7)
 puts c.find_index_of('m')
 puts 3.num_factorial
 puts 10.num_factorial_rec
+print d.check_repeating
+puts c.check_repeating
+print order_items(a, b)
