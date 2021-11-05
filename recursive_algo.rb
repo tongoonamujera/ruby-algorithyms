@@ -14,6 +14,37 @@ module Factorial
     end
   end
 
+  def str_check
+    a = self
+    b = 0
+    c = nil
+    while b < a.size
+      j = b + 1
+      k  = j + 1
+      if a[b] == a[k] && a[b] == a[j] && a[j] == a[k]
+        c = true
+        break
+      else
+        c = false
+      end
+      b += 1
+    end
+    c
+  end
+
+  def elem_next(arr, key)
+    b = 'nothing'
+    (0..(arr.size)).each do |i|
+      if arr[i] == key
+        j = 1 + i
+        b = arr[j]
+      else
+        b = 'no found'
+      end
+    end
+    b
+  end
+
   def str_rev
     a = self
     c = a.split("")
@@ -31,20 +62,17 @@ module Factorial
     num ** (b / a)
   end
 
-  def find_index_of(num)
-    a,b = self,''
-    c = Array(0..a.size)
-    c.each do |i|
-      if a[i] == num
-        b = i
-        b += 1
-        break
-      else
-        b = "#{num} don't exist in array!"
-      end
-    end
-    b
-  end
+  # def find_index_of(num)
+  #   b = []
+  #   (0..(self.size)).each do |i|
+  #     unless (self[i] === num)
+  #       b << i
+  #     else
+  #       b = "#{num} don't exist in array!"
+  #     end
+  #   end
+  #   b
+  # end
 
   def check_repeating
     a,i = self,0
@@ -69,17 +97,20 @@ end
 
 a = Array(1..10)
 c = 'mujer'
-d = 'mmmmm'
+d = 'tooongooona'
 a = ['a1', 'a2', 'a3']
 b = ['b1', 'b2', 'b3']
 include Factorial
 print c.str_rev, "\n"
 puts 3.num_root(8)
 puts 3.num_root(9)
-puts a.find_index_of(7)
-puts c.find_index_of('m')
+# puts a.find_index_of(7)
+# puts c.find_index_of('m')
 puts 3.num_factorial
 puts 10.num_factorial_rec
 print d.check_repeating
 puts c.check_repeating
+puts c.str_check
+puts d.str_check
+# puts elem_next(a, 7)
 print order_items(a, b)
