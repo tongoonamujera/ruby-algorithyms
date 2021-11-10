@@ -32,18 +32,18 @@ module Factorial
     c
   end
 
-  def elem_next(arr, key)
-    b = 'nothing'
-    (0..(arr.size)).each do |i|
-      if arr[i] == key
-        j = 1 + i
-        b = arr[j]
-      else
-        b = 'no found'
-      end
-    end
-    b
-  end
+  # def elem_next(arr, key)
+  #   b = 'nothing'
+  #   (0..(arr.size)).each do |i|
+  #     if arr[i] == key
+  #       j = 1 + i
+  #       b = arr[j]
+  #     else
+  #       b = 'no found'
+  #     end
+  #   end
+  #   b
+  # end
 
   def str_rev
     a = self
